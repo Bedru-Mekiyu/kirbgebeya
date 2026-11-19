@@ -30,8 +30,14 @@
 etc/
 kirbgebeyacom/
 public_ftp/
+# Logs and Caches
+*.log
+**/error_log
+error_log
 logs/
 lscache/
+**/storage/debugbar/*
+!**/storage/debugbar/.gitignore
 mail/
 ssl/
 tmp/
