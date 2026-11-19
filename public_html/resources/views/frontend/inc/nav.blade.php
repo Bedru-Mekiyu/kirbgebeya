@@ -564,10 +564,14 @@
                             <ul class="list-inline mb-0 pl-0 hor-swipe c-scrollbar-light">
                                 @if (get_setting('header_menu_labels') != null)
                                     @foreach (json_decode(get_setting('header_menu_labels'), true) as $key => $value)
+                                        @php
+                                            $raw_menu_link = json_decode(get_setting('header_menu_links'), true)[$key] ?? '/';
+                                            $menu_url = url(str_replace(['http://domain.com', 'https://domain.com'], '', $raw_menu_link));
+                                        @endphp
                                         <li class="list-inline-item mr-0 animate-underline-white">
-                                            <a href="{{ json_decode(get_setting('header_menu_links'), true)[$key] }}"
+                                            <a href="{{ $menu_url }}"
                                                 class="fs-13 px-3 py-3 d-inline-block fw-700 {{ $nav_txt_color }} header_menu_links hov-bg-black-10
-                                            @if (url()->current() == json_decode(get_setting('header_menu_links'), true)[$key]) active @endif">
+                                            @if (url()->current() == $menu_url) active @endif">
                                                 {{ translate($value) }}
                                             </a>
                                         </li>
@@ -646,10 +650,14 @@
             <ul class="mb-0 pl-3 pb-3 h-100">
                 @if (get_setting('header_menu_labels') != null)
                     @foreach (json_decode(get_setting('header_menu_labels'), true) as $key => $value)
+                        @php
+                            $raw_mobile_menu_link = json_decode(get_setting('header_menu_links'), true)[$key] ?? '/';
+                            $mobile_menu_url = url(str_replace(['http://domain.com', 'https://domain.com'], '', $raw_mobile_menu_link));
+                        @endphp
                         <li class="mr-0">
-                            <a href="{{ json_decode(get_setting('header_menu_links'), true)[$key] }}"
+                            <a href="{{ $mobile_menu_url }}"
                                 class="fs-13 px-3 py-3 w-100 d-inline-block fw-700 text-dark header_menu_links
-                            @if (url()->current() == json_decode(get_setting('header_menu_links'), true)[$key]) active @endif">
+                            @if (url()->current() == $mobile_menu_url) active @endif">
                                 {{ translate($value) }}
                             </a>
                         </li>

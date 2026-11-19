@@ -254,7 +254,11 @@
                         <li class="mb-2">
                             <p  class="fs-13 text-secondary mb-1">{{ translate('Email') }}</p>
                             <p  class="">
-                                <a href="mailto:{{ get_setting('contact_email') }}" class="fs-13 text-soft-light hov-text-primary">{{ get_setting('contact_email')  }}</a>
+                                @if (get_setting('contact_email'))
+                                    <a href="mailto:{{ get_setting('contact_email') }}" class="fs-13 text-soft-light hov-text-primary">{{ get_setting('contact_email')  }}</a>
+                                @else
+                                    <span class="fs-13 text-soft-light">{{ translate('Not Available') }}</span>
+                                @endif
                             </p>
                         </li>
                     </ul>
@@ -412,7 +416,11 @@
                         <li class="mb-2">
                             <p  class="fs-13 text-secondary mb-1">{{ translate('Email') }}</p>
                             <p  class="">
-                                <a href="mailto:{{ get_setting('contact_email') }}" class="fs-13 text-soft-light hov-text-primary">{{ get_setting('contact_email')  }}</a>
+                                @if (get_setting('contact_email'))
+                                    <a href="mailto:{{ get_setting('contact_email') }}" class="fs-13 text-soft-light hov-text-primary">{{ get_setting('contact_email')  }}</a>
+                                @else
+                                    <span class="fs-13 text-soft-light">{{ translate('Not Available') }}</span>
+                                @endif
                             </p>
                         </li>
                     </ul>
