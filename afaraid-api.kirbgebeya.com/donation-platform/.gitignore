@@ -1,0 +1,70 @@
+# ==========================================
+# General
+# ==========================================
+node_modules/
+dist/
+build/
+coverage/
+.env
+.env.*
+!.env.example
+.DS_Store
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ==========================================
+# Frontend (React / Vite / Flutter Web)
+# ==========================================
+apps/*/node_modules/
+apps/*/build/
+apps/*/dist/
+apps/*/.vite/
+apps/*/.next/
+apps/*/.cache/
+apps/*/.DS_Store
+
+# ==========================================
+# Backend (Express / NestJS)
+# ==========================================
+service/node_modules/
+service/node_modules
+service/dist/
+service/logs/
+service/tmp/
+service/.env
+service/.DS_Store
+
+# ==========================================
+# Editors / OS Files
+# ==========================================
+.idea/
+.vscode/
+*.swp
+*.swo
+Thumbs.db
+
+# ==========================================
+# Optional: Shared / Monorepo Files
+# ==========================================
+libs/node_modules/
+configs/*.local.*
+configs/.env
+
+# ==========================================
+# Docker / Deployment
+# ==========================================
+docker-compose.override.yml
+*.pid
+*.seed
+*.key
+*.pem
+
+# ==========================================
+# Miscellaneous
+# ==========================================
+*.sqlite
+*.db
+*.zip
+*.tar

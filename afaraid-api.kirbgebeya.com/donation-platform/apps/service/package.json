@@ -1,0 +1,44 @@
+{
+  "name": "service",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "migrate:auth": "sequelize-cli db:migrate --migrations-path src/modules/auth --config src/modules/auth/config/config.js",
+    "migrate:campaigns": "sequelize-cli db:migrate --migrations-path src/modules/campaigns --config src/modules/auth/config/config.js",
+    "migrate:donations": "sequelize-cli db:migrate --migrations-path src/modules/donations --config src/modules/auth/config/config.js",
+    "migrate:stats": "sequelize-cli db:migrate --migrations-path src/modules/stats --config src/modules/auth/config/config.js",
+    "db:migrate": "npm run migrate:auth && npm run migrate:campaigns && npm run migrate:donations && npm run migrate:stats",
+    "db:seed:auth": "sequelize-cli db:seed:all --seeders-path src/modules/auth --config src/modules/auth/config/config.js",
+    "db:migrate:undo:auth": "sequelize-cli db:migrate:undo --migrations-path src/modules/auth --config src/modules/auth/config/config.js",
+    "db:migrate:undo:all:auth": "sequelize-cli db:migrate:undo:all --migrations-path src/modules/auth --config src/modules/auth/config/config.js",
+    "db:create": "sequelize-cli db:create --config src/modules/auth/config/config.js",
+    "db:drop": "sequelize-cli db:drop --config src/modules/auth/config/config.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "chapa-nodejs": "^2.0.1",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "helmet": "^8.1.0",
+    "http-errors": "^2.0.0",
+    "jsonwebtoken": "^9.0.2",
+    "morgan": "^1.10.1",
+    "mysql2": "^3.15.2",
+    "nodemailer": "^7.0.10",
+    "nodemon": "^3.1.10",
+    "sequelize": "^6.37.7",
+    "socket.io": "^4.8.1"
+  },
+  "devDependencies": {
+    "dotenv": "^17.2.3",
+    "nodemon": "^3.1.10",
+    "sequelize-cli": "^6.6.3"
+  }
+}

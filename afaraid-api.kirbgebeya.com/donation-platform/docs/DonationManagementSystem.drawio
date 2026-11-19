@@ -1,0 +1,329 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36" version="28.2.5" pages="5">
+  <diagram id="use-case-diagram" name="Use Case Diagram">
+    <mxGraphModel dx="1426" dy="743" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="2" value="Donor" style="shape=actor;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="50" y="100" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="3" value="Admin" style="shape=actor;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="50" y="250" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="4" value="Field Officer" style="shape=actor;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="50" y="400" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="5" value="Beneficiary" style="shape=actor;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="50" y="550" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="6" value="Donation Management System" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=30;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;container=0;" parent="1" vertex="1">
+          <mxGeometry x="200" y="50" width="460" height="690" as="geometry" />
+        </mxCell>
+        <mxCell id="15" style="edgeStyle=elbowEdgeStyle;rounded=0;html=1;" parent="1" source="2" target="8" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="16" style="edgeStyle=elbowEdgeStyle;rounded=0;html=1;" parent="1" source="2" target="14" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="260" y="240" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="17" style="edgeStyle=elbowEdgeStyle;rounded=0;html=1;" parent="1" source="3" target="7" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="18" style="edgeStyle=elbowEdgeStyle;rounded=0;html=1;" parent="1" source="3" target="10" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="19" style="edgeStyle=elbowEdgeStyle;rounded=0;html=1;" parent="1" source="3" target="11" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="20" style="edgeStyle=elbowEdgeStyle;rounded=0;html=1;" parent="1" source="3" target="12" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="21" style="edgeStyle=elbowEdgeStyle;rounded=0;html=1;" parent="1" source="3" target="13" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="22" style="edgeStyle=elbowEdgeStyle;rounded=0;html=1;" parent="1" source="4" target="9" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="23" style="edgeStyle=elbowEdgeStyle;rounded=0;html=1;" parent="1" source="4" target="10" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="24" style="edgeStyle=elbowEdgeStyle;rounded=0;html=1;" parent="1" source="4" target="11" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="25" style="edgeStyle=elbowEdgeStyle;rounded=0;html=1;" parent="1" source="4" target="12" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="26" style="edgeStyle=elbowEdgeStyle;rounded=0;html=1;" parent="1" source="5" target="14" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="7" value="Create and Manage Campaigns" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="350" y="100" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="8" value="Make Donation" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="350" y="180" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="9" value="Register Beneficiaries" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="350" y="260" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="10" value="Verify Beneficiaries" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="350" y="340" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="11" value="Allocate Goats" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="350" y="420" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="12" value="Track Delivery" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="350" y="500" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="13" value="Generate Reports" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="350" y="580" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="14" value="View Donation/Allocation Status" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="500" y="340" width="100" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="context-diagram" name="Context Diagram">
+    <mxGraphModel dx="800" dy="600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <!-- System -->
+        <mxCell id="2" value="Donation Management System (DMS)" style="ellipse;whiteSpace=wrap;html=1;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="350" y="300" width="150" height="100" as="geometry" />
+        </mxCell>
+        <!-- External Entities -->
+        <mxCell id="3" value="Donor" style="shape=actor;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="50" y="100" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="4" value="Admin" style="shape=actor;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="50" y="300" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="5" value="Field Officer" style="shape=actor;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="50" y="500" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="6" value="Beneficiary" style="shape=actor;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="600" y="100" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="7" value="Payment Gateway" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="600" y="300" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="8" value="Livestock Supplier" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="600" y="500" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="9" value="Reporting System" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="350" y="500" width="100" height="60" as="geometry" />
+        </mxCell>
+        <!-- Data Flows -->
+        <mxCell id="10" value="Donation details, campaign selection" style="edgeStyle=elbowEdgeStyle;rounded=0;html=1;endArrow=block;" edge="1" parent="1" source="3" target="2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="11" value="Reports, analytics" style="edgeStyle=elbowEdgeStyle;rounded=0;html=1;endArrow=block;" edge="1" parent="1" source="2" target="4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="12" value="Beneficiary data, verification updates" style="edgeStyle=elbowEdgeStyle;rounded=0;html=1;endArrow=block;" edge="1" parent="1" source="5" target="2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="13" value="Notifications, allocation confirmations" style="edgeStyle=elbowEdgeStyle;rounded=0;html=1;endArrow=block;" edge="1" parent="1" source="2" target="6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="14" value="Payment processing" style="edgeStyle=elbowEdgeStyle;rounded=0;html=1;endArrow=block;" edge="1" parent="1" source="2" target="7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="15" value="Payment confirmation" style="edgeStyle=elbowEdgeStyle;rounded=0;html=1;endArrow=block;" edge="1" parent="1" source="7" target="2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="16" value="Goat delivery updates" style="edgeStyle=elbowEdgeStyle;rounded=0;html=1;endArrow=block;" edge="1" parent="1" source="8" target="2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="17" value="Inventory confirmation" style="edgeStyle=elbowEdgeStyle;rounded=0;html=1;endArrow=block;" edge="1" parent="1" source="2" target="8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="18" value="Summary reports" style="edgeStyle=elbowEdgeStyle;rounded=0;html=1;endArrow=block;" edge="1" parent="1" source="2" target="9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="activity-diagram" name="Activity Diagram">
+    <mxGraphModel dx="800" dy="600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <!-- Activities -->
+        <mxCell id="2" value="Start" style="shape=ellipse;whiteSpace=wrap;html=1;fillColor=#000000;strokeColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="400" y="50" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="3" value="Admin creates campaigns" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="350" y="100" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="4" value="Donors select campaigns and make donations" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="350" y="180" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="5" value="Field Officer registers beneficiaries" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="350" y="260" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="6" value="Admin/Field Officer verifies beneficiaries" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="350" y="340" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="7" value="Admin/Field Officer allocates goats" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="350" y="420" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="8" value="Field Officer delivers goats" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="350" y="500" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="9" value="DMS updates delivery confirmation" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="350" y="580" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="10" value="Admin generates reports and analytics" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="350" y="660" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="11" value="End" style="shape=ellipse;whiteSpace=wrap;html=1;fillColor=#000000;strokeColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="400" y="740" width="30" height="30" as="geometry" />
+        </mxCell>
+        <!-- Transitions -->
+        <mxCell id="12" style="edgeStyle=elbowEdgeStyle;rounded=0;html=1;endArrow=block;" edge="1" parent="1" source="2" target="3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="13" style="edgeStyle=elbowEdgeStyle;rounded=0;html=1;endArrow=block;" edge="1" parent="1" source="3" target="4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="14" style="edgeStyle=elbowEdgeStyle;rounded=0;html=1;endArrow=block;" edge="1" parent="1" source="4" target="5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="15" style="edgeStyle=elbowEdgeStyle;rounded=0;html=1;endArrow=block;" edge="1" parent="1" source="5" target="6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="16" style="edgeStyle=elbowEdgeStyle;rounded=0;html=1;endArrow=block;" edge="1" parent="1" source="6" target="7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="17" style="edgeStyle=elbowEdgeStyle;rounded=0;html=1;endArrow=block;" edge="1" parent="1" source="7" target="8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="18" style="edgeStyle=elbowEdgeStyle;rounded=0;html=1;endArrow=block;" edge="1" parent="1" source="8" target="9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="19" style="edgeStyle=elbowEdgeStyle;rounded=0;html=1;endArrow=block;" edge="1" parent="1" source="9" target="10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="20" style="edgeStyle=elbowEdgeStyle;rounded=0;html=1;endArrow=block;" edge="1" parent="1" source="10" target="11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="sequence-diagram" name="Sequence Diagram">
+    <mxGraphModel dx="800" dy="600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <!-- Lifelines -->
+        <mxCell id="2" value="Donor" style="shape=actor;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="50" y="50" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="3" value="DMS" style="shape=lifeline;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="150" y="50" width="100" height="600" as="geometry" />
+        </mxCell>
+        <mxCell id="4" value="Payment Gateway" style="shape=lifeline;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="300" y="50" width="100" height="600" as="geometry" />
+        </mxCell>
+        <mxCell id="5" value="Field Officer" style="shape=actor;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="450" y="50" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="6" value="Admin" style="shape=actor;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="550" y="50" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="7" value="Beneficiary" style="shape=actor;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="650" y="50" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="8" value="Reporting System" style="shape=lifeline;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="750" y="50" width="100" height="600" as="geometry" />
+        </mxCell>
+        <!-- Messages -->
+        <mxCell id="9" value="makeDonation(campaign, amount)" style="edgeStyle=elbowEdgeStyle;rounded=0;html=1;endArrow=block;" edge="1" parent="1" source="2" target="3">
+          <mxGeometry y="150" relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="10" value="processPayment(donorInfo, amount)" style="edgeStyle=elbowEdgeStyle;rounded=0;html=1;endArrow=block;" edge="1" parent="1" source="3" target="4">
+          <mxGeometry y="180" relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="11" value="paymentConfirmation(status)" style="edgeStyle=elbowEdgeStyle;rounded=0;html=1;endArrow=block;dashed=1;" edge="1" parent="1" source="4" target="3">
+          <mxGeometry y="200" relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="12" value="registerBeneficiary(familyInfo)" style="edgeStyle=elbowEdgeStyle;rounded=0;html=1;endArrow=block;" edge="1" parent="1" source="5" target="3">
+          <mxGeometry y="250" relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="13" value="verifyBeneficiary(familyID)" style="edgeStyle=elbowEdgeStyle;rounded=0;html=1;endArrow=block;" edge="1" parent="1" source="6" target="3">
+          <mxGeometry y="300" relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="14" value="allocateGoats(familyID, count)" style="edgeStyle=elbowEdgeStyle;rounded=0;html=1;endArrow=block;" edge="1" parent="1" source="6" target="3">
+          <mxGeometry y="350" relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="15" value="deliverGoats(familyID)" style="edgeStyle=elbowEdgeStyle;rounded=0;html=1;endArrow=block;" edge="1" parent="1" source="5" target="7">
+          <mxGeometry y="400" relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="16" value="confirmDelivery(status)" style="edgeStyle=elbowEdgeStyle;rounded=0;html=1;endArrow=block;" edge="1" parent="1" source="7" target="3">
+          <mxGeometry y="450" relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="17" value="generateReport()" style="edgeStyle=elbowEdgeStyle;rounded=0;html=1;endArrow=block;" edge="1" parent="1" source="6" target="3">
+          <mxGeometry y="500" relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="18" value="sendAnalytics()" style="edgeStyle=elbowEdgeStyle;rounded=0;html=1;endArrow=block;" edge="1" parent="1" source="3" target="8">
+          <mxGeometry y="550" relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="er-diagram" name="ER Diagram">
+    <mxGraphModel dx="2276" dy="1843" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="2" value="Donor&#xa;----&#xa;donor_id (PK)&#xa;name&#xa;email&#xa;phone" style="shape=table;startSize=30;container=1;collapsible=0;childLayout=tableLayout;" parent="1" vertex="1">
+          <mxGeometry x="-60" y="-40" width="100" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="3" value="Campaign&#xa;----&#xa;campaign_id (PK)&#xa;name&#xa;description&#xa;start_date&#xa;end_date&#xa;target_amount" style="shape=table;startSize=30;container=1;collapsible=0;childLayout=tableLayout;" parent="1" vertex="1">
+          <mxGeometry x="250" y="50" width="100" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="4" value="Donation&#xa;----&#xa;donation_id (PK)&#xa;donor_id (FK)&#xa;campaign_id (FK)&#xa;amount&#xa;date" style="shape=table;startSize=30;container=1;collapsible=0;childLayout=tableLayout;" parent="1" vertex="1">
+          <mxGeometry x="-70" y="300" width="100" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="5" value="Beneficiary&#xa;----&#xa;beneficiary_id (PK)&#xa;name&#xa;family_size&#xa;location&#xa;verified_status" style="shape=table;startSize=30;container=1;collapsible=0;childLayout=tableLayout;" parent="1" vertex="1">
+          <mxGeometry x="510" y="10" width="130" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="6" value="Livestock_Allocation&#xa;----&#xa;allocation_id (PK)&#xa;beneficiary_id (FK)&#xa;goat_count&#xa;delivery_date&#xa;delivered_status" style="shape=table;startSize=30;container=1;collapsible=0;childLayout=tableLayout;" parent="1" vertex="1">
+          <mxGeometry x="790" y="150" width="100" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="7" value="Field_Officer&#xa;----&#xa;officer_id (PK)&#xa;name&#xa;region" style="shape=table;startSize=30;container=1;collapsible=0;childLayout=tableLayout;" parent="1" vertex="1">
+          <mxGeometry x="60" y="490" width="100" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="8" value="Admin&#xa;----&#xa;admin_id (PK)&#xa;name&#xa;role" style="shape=table;startSize=30;container=1;collapsible=0;childLayout=tableLayout;" parent="1" vertex="1">
+          <mxGeometry x="250" y="350" width="100" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="9" value="Report&#xa;----&#xa;report_id (PK)&#xa;report_type&#xa;generated_date&#xa;admin_id (FK)" style="shape=table;startSize=30;container=1;collapsible=0;childLayout=tableLayout;" parent="1" vertex="1">
+          <mxGeometry x="680" y="480" width="100" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="10" value="1:N" style="edgeStyle=elbowEdgeStyle;rounded=0;html=1;endArrow=block;" parent="1" source="2" target="4" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="11" value="1:N" style="edgeStyle=elbowEdgeStyle;rounded=0;html=1;endArrow=block;" parent="1" source="3" target="4" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="12" value="1:N" style="edgeStyle=elbowEdgeStyle;rounded=0;html=1;endArrow=block;" parent="1" source="5" target="6" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="13" value="1:N" style="edgeStyle=elbowEdgeStyle;rounded=0;html=1;endArrow=block;" parent="1" source="7" target="6" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="14" value="1:N" style="edgeStyle=elbowEdgeStyle;rounded=0;html=1;endArrow=block;" parent="1" source="8" target="3" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="15" value="1:N" style="edgeStyle=elbowEdgeStyle;rounded=0;html=1;endArrow=block;" parent="1" source="8" target="9" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
