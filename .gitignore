@@ -1,0 +1,93 @@
+# Secrets and Environment
+.env
+.env.*
+!.env.example
+**/.env
+**/.env.*
+!**/.env.example
+
+# Dependencies
+**/vendor/
+**/node_modules/
+**/nodevenv/
+.composer/
+.npm/
+
+# Server and Hosting Artifacts
+.cagefs/
+.caldav/
+.cl.selector/
+.cpanel/
+.cphorde/
+.htpasswds/
+.koality/
+.razor/
+.sitepad/
+.softaculous/
+.spamassassin/
+.subaccounts/
+.trash/
+etc/
+kirbgebeyacom/
+public_ftp/
+logs/
+lscache/
+mail/
+ssl/
+tmp/
+Neww hacked/
+backup/
+backup.kirbgebeya.com/
+
+# Large Archives and Binary Dumps
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.rar
+*.iso
+
+# Laravel Framework Caches and Logs
+**/storage/framework/cache/*
+**/storage/framework/sessions/*
+**/storage/framework/views/*
+**/storage/logs/*
+!**/storage/framework/cache/.gitkeep
+!**/storage/framework/sessions/.gitkeep
+!**/storage/framework/views/.gitkeep
+!**/storage/logs/.gitkeep
+**/bootstrap/cache/*
+!**/bootstrap/cache/.gitkeep
+
+# User Uploads
+public_html/public/uploads/
+main.kirbgebeya.com/public/uploads/
+
+# OS and Editor Junk
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+*.bak
+*.orig
+*.old
+.idea/
+.vscode/
+
+# Local cPanel user files
+.bash_history
+.bash_profile
+.bashrc
+.bash_logout
+.ftpquota
+.gemrc
+.gitconfig
+.imunify_patch_id
+.lastlogin
+.myimunify_id
+.spamassassinboxenable
+.spamassassinenable
+.wget-hsts
+.wp-toolkit-identifier
+Screenshot*.png
