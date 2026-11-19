@@ -17,39 +17,39 @@ $uri = urldecode(
 
 $publicStripped = preg_replace('#^/public#', '', $uri);
 
-if ($uri !== '/') {
-    if (file_exists(__DIR__ . '/public' . $uri) && is_file(__DIR__ . '/public' . $uri)) {
-        return false;
+$targetFile = null;
+if ($publicStripped !== '' && file_exists(__DIR__ . '/public' . $publicStripped) && is_file(__DIR__ . '/public' . $publicStripped)) {
+    $targetFile = __DIR__ . '/public' . $publicStripped;
+} elseif (file_exists(__DIR__ . '/public' . $uri) && is_file(__DIR__ . '/public' . $uri)) {
+    $targetFile = __DIR__ . '/public' . $uri;
+} elseif (file_exists(__DIR__ . $uri) && is_file(__DIR__ . $uri)) {
+    $targetFile = __DIR__ . $uri;
+}
+
+if ($targetFile !== null && $uri !== '/') {
+    $ext = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
+    $mimes = [
+        'css'   => 'text/css',
+        'js'    => 'application/javascript',
+        'png'   => 'image/png',
+        'jpg'   => 'image/jpeg',
+        'jpeg'  => 'image/jpeg',
+        'webp'  => 'image/webp',
+        'svg'   => 'image/svg+xml',
+        'gif'   => 'image/gif',
+        'woff'  => 'font/woff',
+        'woff2' => 'font/woff2',
+        'ttf'   => 'font/ttf',
+        'eot'   => 'application/vnd.ms-fontobject',
+        'ico'   => 'image/x-icon',
+        'json'  => 'application/json',
+        'map'   => 'application/json',
+    ];
+    if (isset($mimes[$ext])) {
+        header('Content-Type: ' . $mimes[$ext]);
     }
-    if (file_exists(__DIR__ . $uri) && is_file(__DIR__ . $uri)) {
-        return false;
-    }
-    if ($publicStripped !== '' && file_exists(__DIR__ . '/public' . $publicStripped) && is_file(__DIR__ . '/public' . $publicStripped)) {
-        $file = __DIR__ . '/public' . $publicStripped;
-        $ext = strtolower(pathinfo($file, PATHINFO_EXTENSION));
-        $mimes = [
-            'css'   => 'text/css',
-            'js'    => 'application/javascript',
-            'png'   => 'image/png',
-            'jpg'   => 'image/jpeg',
-            'jpeg'  => 'image/jpeg',
-            'webp'  => 'image/webp',
-            'svg'   => 'image/svg+xml',
-            'gif'   => 'image/gif',
-            'woff'  => 'font/woff',
-            'woff2' => 'font/woff2',
-            'ttf'   => 'font/ttf',
-            'eot'   => 'application/vnd.ms-fontobject',
-            'ico'   => 'image/x-icon',
-            'json'  => 'application/json',
-            'map'   => 'application/json',
-        ];
-        if (isset($mimes[$ext])) {
-            header('Content-Type: ' . $mimes[$ext]);
-        }
-        readfile($file);
-        exit;
-    }
+    readfile($targetFile);
+    exit;
 }
 
 if (file_exists(__DIR__ . '/public/index.php')) {
