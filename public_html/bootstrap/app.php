@@ -1,5 +1,9 @@
 <?php
 
+// Suppress deprecations from leaking into HTTP output
+error_reporting(E_ALL & ~E_DEPRECATED & ~E_USER_DEPRECATED);
+ini_set('display_errors', '0');
+
 /*
 |--------------------------------------------------------------------------
 | Create The Application
