@@ -35,9 +35,11 @@ public_ftp/
 **/error_log
 error_log
 logs/
+**/public/logs/
 lscache/
 **/storage/debugbar/*
 !**/storage/debugbar/.gitignore
+**/public/storage
 mail/
 ssl/
 tmp/
