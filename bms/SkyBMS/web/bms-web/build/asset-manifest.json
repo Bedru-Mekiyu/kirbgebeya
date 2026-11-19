@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/static/css/main.81099c81.css",
+    "main.js": "/static/js/main.7a2f1d5a.js",
+    "static/js/239.18c55b08.chunk.js": "/static/js/239.18c55b08.chunk.js",
+    "static/js/213.ceb6abb2.chunk.js": "/static/js/213.ceb6abb2.chunk.js",
+    "static/js/455.12393e0a.chunk.js": "/static/js/455.12393e0a.chunk.js",
+    "static/js/453.41c642b3.chunk.js": "/static/js/453.41c642b3.chunk.js",
+    "static/media/pdf.worker.min.mjs": "/static/media/pdf.worker.min.a98242f036246bfd1c9b.mjs",
+    "static/media/New-Financial-Service-Code.jpg": "/static/media/New-Financial-Service-Code.7fd333cc05fa789d139f.jpg",
+    "index.html": "/index.html",
+    "main.81099c81.css.map": "/static/css/main.81099c81.css.map",
+    "main.7a2f1d5a.js.map": "/static/js/main.7a2f1d5a.js.map",
+    "239.18c55b08.chunk.js.map": "/static/js/239.18c55b08.chunk.js.map",
+    "213.ceb6abb2.chunk.js.map": "/static/js/213.ceb6abb2.chunk.js.map",
+    "455.12393e0a.chunk.js.map": "/static/js/455.12393e0a.chunk.js.map",
+    "453.41c642b3.chunk.js.map": "/static/js/453.41c642b3.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.81099c81.css",
+    "static/js/main.7a2f1d5a.js"
+  ]
+}

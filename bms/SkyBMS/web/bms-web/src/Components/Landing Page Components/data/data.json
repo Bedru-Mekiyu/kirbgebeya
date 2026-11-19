@@ -1,0 +1,176 @@
+{
+  "Header": {
+    "title": "Building Management System",
+    "paragraph": "A Building Management System (BMS) is a comprehensive software solution designed to streamline and automate the management of residential, commercial, or mixed-use properties. The goal of a BMS is to enhance operational efficiency, improve tenant satisfaction, and facilitate effective property management."
+  },
+  "About": {
+    "paragraph": "Skylink Tech is a leading provider of technology solutions, specializing in: Software Development, Network Installation, Security Camera Installation, IT Consulting and Support Services",
+    "Why": [
+      "Lorem ipsum dolor",
+      "Tempor incididunt",
+      "Lorem ipsum dolor",
+      "Incididunt ut labore"
+    ],
+    "Why2": [
+      "Aliquip ex ea commodo",
+      "Lorem ipsum dolor",
+      "Exercitation ullamco",
+      "Lorem ipsum dolor"
+    ]
+  },
+
+  "Gallery": [
+    {
+      "title": "Project Title",
+      "largeImage": "img/portfolio/01-large.jpg",
+      "smallImage": "img/portfolio/01-small.jpg"
+    },
+    {
+      "title": "Project Title",
+      "largeImage": "img/portfolio/02-large.jpg",
+      "smallImage": "img/portfolio/02-small.jpg"
+    },
+    {
+      "title": "Project Title",
+      "largeImage": "img/portfolio/03-large.jpg",
+      "smallImage": "img/portfolio/03-small.jpg"
+    },
+    {
+      "title": "Project Title",
+      "largeImage": "img/portfolio/04-large.jpg",
+      "smallImage": "img/portfolio/04-small.jpg"
+    },
+    {
+      "title": "Project Title",
+      "largeImage": "img/portfolio/05-large.jpg",
+      "smallImage": "img/portfolio/05-small.jpg"
+    },
+    {
+      "title": "Project Title",
+      "largeImage": "img/portfolio/06-large.jpg",
+      "smallImage": "img/portfolio/06-small.jpg"
+    },
+    {
+      "title": "Project Title",
+      "largeImage": "img/portfolio/07-large.jpg",
+      "smallImage": "img/portfolio/07-small.jpg"
+    },
+    {
+      "title": "Project Title",
+      "largeImage": "img/portfolio/08-large.jpg",
+      "smallImage": "img/portfolio/08-small.jpg"
+    },
+    {
+      "title": "Project Title",
+      "largeImage": "img/portfolio/09-large.jpg",
+      "smallImage": "img/portfolio/09-small.jpg"
+    }
+  ],
+  "Services": [
+    {
+      "icon": "fa fa-code",
+      "name": "Software Development",
+      "text": "We provide custom software solutions tailored to your business needs. Our team of developers uses the latest technologies to create scalable and efficient applications."
+    },
+    {
+      "icon": "fa fa-network-wired",
+      "name": "Network Installation",
+      "text": "Our experts design and implement robust network infrastructures that ensure reliable connectivity and seamless communication across your organization."
+    },
+    {
+      "icon": "fa fa-video-camera",
+      "name": "Security Camera Installation",
+      "text": "We specialize in installing advanced security camera systems to enhance safety and surveillance capabilities in residential and commercial properties."
+    },
+    {
+      "icon": "fa fa-laptop",
+      "name": "IT Consulting",
+      "text": "Our experienced consultants offer strategic IT guidance to help you optimize technology investments and achieve your business objectives."
+    },
+    {
+      "icon": "fa fa-database",
+      "name": "Data Backup Solutions",
+      "text": "We provide secure and automated data backup solutions to safeguard your critical business data against unforeseen events and ensure business continuity."
+    },
+    {
+      "icon": "fa fa-cloud",
+      "name": "Cloud Services",
+      "text": "We offer comprehensive cloud computing solutions, including migration, management, and optimization services, to maximize efficiency and scalability."
+    }
+  ],
+  "Testimonials": [
+    {
+      "img": "img/testimonials/01.jpg",
+      "text": "\"The building management system provided by Skylink Tech has significantly improved our operational efficiency.\"",
+      "name": "John Doe"
+    },
+    {
+      "img": "img/testimonials/02.jpg",
+      "text": "\"Their customer service is excellent, always responsive and helpful.\"",
+      "name": "Jane Smith"
+    },
+    {
+      "img": "img/testimonials/03.jpg",
+      "text": "\"We are very satisfied with the financial management tools they offer.\"",
+      "name": "David Brown"
+    }
+  ],
+  "Team": [
+    {
+      "img": "img/team/01.jpg",
+      "name": "John Doe",
+      "job": "Director"
+    },
+    {
+      "img": "img/team/02.jpg",
+      "name": "Mike Doe",
+      "job": "Senior Designer"
+    },
+    {
+      "img": "img/team/03.jpg",
+      "name": "Jane Doe",
+      "job": "Senior Designer"
+    },
+    {
+      "img": "img/team/04.jpg",
+      "name": "Karen Doe",
+      "job": "Project Manager"
+    }
+  ],
+  "Contact": {
+    "address": "4321 California St, San Francisco, CA 12345 ",
+    "phone": "+1 123 456 1234",
+    "email": "info@company.com",
+    "facebook": "fb.com",
+    "twitter": "twitter.com",
+    "youtube": "youtube.com"
+  },
+
+  "Features": [
+    {
+      "icon": "fa fa-building",
+      "title": "Building Management",
+      "text": "Add, edit, and manage building details."
+    },
+    {
+      "icon": "fa fa-building-o",
+      "title": "Unit Management",
+      "text": "Maintain details of building units and their statuses."
+    },
+    {
+      "icon": "fa fa-file-text-o",
+      "title": "Lease Management",
+      "text": "Track lease agreements and their terms."
+    },
+    {
+      "icon": "fa fa-money",
+      "title": "Financial Management",
+      "text": "Monitor financial transactions and expenses."
+    },
+    {
+      "icon": "fa fa-users",
+      "title": "Tenant Management",
+      "text": "Manage tenant information and communications."
+    }
+  ]
+}
