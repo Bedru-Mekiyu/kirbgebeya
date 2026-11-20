@@ -1,6 +1,8 @@
 /bootstrap/compiled.php
-.env.*.php
-.env.php
+.env
+.phpunit.result.cache.*.php
+.env
+.phpunit.result.cache.php
 /app/Exceptions
 /node_modules
 /public/storage
@@ -24,6 +26,7 @@ composer.lock
 *.lock
 resources/lang/en.json
 .env
+.phpunit.result.cache
 updates.zip
 ecommerce.zip
 install.zip

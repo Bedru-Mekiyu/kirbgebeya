@@ -11,6 +11,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UsersTableSeeder::class);
+        require_once __DIR__ . '/HalalCategorySeeder.php';
+        $this->call(HalalCategorySeeder::class);
     }
 }

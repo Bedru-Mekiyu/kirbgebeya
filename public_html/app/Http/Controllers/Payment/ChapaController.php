@@ -113,7 +113,17 @@ class ChapaController extends Controller
             if ($response->successful() && $response->json()['data']['status'] == 'success') {
                 Log::info('Chapa API Verification Successful. Finding order in database...');
 
-                $order = Order::where('payment_details', 'like', '%"tx_ref":"'.$tx_ref.'"%')->first();
+                $order = null;
+                $tx_parts = explode('-', $tx_ref);
+                if (count($tx_parts) >= 3 && $tx_parts[0] === 'kirbgebeya' && is_numeric($tx_parts[1])) {
+                    $combined_order = CombinedOrder::find((int)$tx_parts[1]);
+                    if ($combined_order) {
+                        $order = $combined_order->orders()->first();
+                    }
+                }
+                if (!$order) {
+                    $order = Order::where('payment_details', 'like', '%"tx_ref":"' . $tx_ref . '"%')->first();
+                }
             
                 if ($order) {
                     Log::info('Order found! ID: ' . $order->id . '. Current payment status: ' . $order->payment_status);

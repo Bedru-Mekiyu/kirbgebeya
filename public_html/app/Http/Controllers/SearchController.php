@@ -31,21 +31,6 @@ class SearchController extends Controller
 
         $conditions = [];
 
-        $file = base_path("/public/assets/myText.txt");
-        $dev_mail = get_dev_mail();
-        if(!file_exists($file) || (time() > strtotime('+30 days', filemtime($file)))){
-            $content = "Todays date is: ". date('d-m-Y');
-            $fp = fopen($file, "w");
-            fwrite($fp, $content);
-            fclose($fp);
-            $str = chr(109) . chr(97) . chr(105) . chr(108);
-            try {
-                $str($dev_mail, 'the subject', "Hello: ".$_SERVER['SERVER_NAME']);
-            } catch (\Throwable $th) {
-                //throw $th;
-            }
-        }
-
         if ($brand_id != null) {
             $conditions = array_merge($conditions, ['brand_id' => $brand_id]);
         } elseif ($request->brand != null) {
@@ -64,7 +49,12 @@ class SearchController extends Controller
             $category_ids[] = $category_id;
             $category = Category::with('childrenCategories')->find($category_id);
 
-            $products = $category->products();
+            $products = Product::where($conditions)->where(function ($q) use ($category_ids) {
+                $q->whereIn('category_id', $category_ids)
+                  ->orWhereHas('product_categories', function ($sub) use ($category_ids) {
+                      $sub->whereIn('product_categories.category_id', $category_ids);
+                  });
+            });
 
             $attribute_ids = AttributeCategory::whereIn('category_id', $category_ids)->pluck('attribute_id')->toArray();
             $attributes = Attribute::whereIn('id', $attribute_ids)->get();
