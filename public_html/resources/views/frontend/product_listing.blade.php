@@ -295,6 +295,18 @@
                             </div>
                         </div>
                         
+                        <!-- Subcategories Pill Bar -->
+                        @if (isset($category) && $category instanceof \App\Models\Category && $category->childrenCategories->count() > 0)
+                            <div class="d-flex flex-wrap align-items-center mb-3">
+                                <span class="fs-13 fw-600 text-muted mr-3 mb-2">{{ translate('Subcategories') }}:</span>
+                                @foreach ($category->childrenCategories as $subCat)
+                                    <a href="{{ route('products.category', $subCat->slug) }}" class="btn btn-sm btn-soft-primary rounded-pill mr-2 mb-2 fs-12 fw-600">
+                                        {{ $subCat->getTranslation('name') }}
+                                    </a>
+                                @endforeach
+                            </div>
+                        @endif
+
                         <!-- Products -->
                         <div class="px-3">
                             <div class="row gutters-16 row-cols-xxl-4 row-cols-xl-3 row-cols-lg-4 row-cols-md-3 row-cols-2 border-top border-left">

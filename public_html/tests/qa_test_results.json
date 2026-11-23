@@ -1,0 +1,292 @@
+[
+    {
+        "id": "TC-HALAL-01",
+        "feature": "Category Visibility",
+        "steps": "Query root categories for slug \"halal-products\" and verify position in level 0 menu and featured status.",
+        "expected": "Halal Products category is visible as the #1 item in sidebar and featured on home page.",
+        "actual": "Category found with order_level=1, positioned at index 0, and marked featured=1.",
+        "passed": true,
+        "issue": "None",
+        "fix": "None"
+    },
+    {
+        "id": "TC-HALAL-02",
+        "feature": "Subcategory Navigation",
+        "steps": "Execute POST \/category\/nav-element-list for Halal category ID and check subcategory links.",
+        "expected": "All 6 subcategories render in the mega-menu HTML.",
+        "actual": "6 subcategories returned in navigation menu (6 child categories in DB).",
+        "passed": true,
+        "issue": "None",
+        "fix": "None"
+    },
+    {
+        "id": "TC-HALAL-03",
+        "feature": "Product Listing",
+        "steps": "Navigate to \/category\/halal-products and verify that products from all subcategories are aggregated.",
+        "expected": "Listing renders 9+ products aggregated across all subcategories with subcategory pills bar.",
+        "actual": "Page successfully aggregated 9 products across 6 subcategories.",
+        "passed": true,
+        "issue": "None",
+        "fix": "None"
+    },
+    {
+        "id": "TC-HALAL-04",
+        "feature": "Product Details",
+        "steps": "Load product details page for \"fresh-halal-beef-prime-cuts-1kg\" and check information and badges.",
+        "expected": "Product details render title, price (950.00 ETB), and green 100% Halal Certified badge.",
+        "actual": "All details, Halal badge, and price displayed accurately.",
+        "passed": true,
+        "issue": "None",
+        "fix": "None"
+    },
+    {
+        "id": "TC-HALAL-05",
+        "feature": "Product Search",
+        "steps": "Execute search request \/search?keyword=halal.",
+        "expected": "Search results display products tagged with \"halal\".",
+        "actual": "Search successfully yielded Halal products from the catalog.",
+        "passed": true,
+        "issue": "None",
+        "fix": "None"
+    },
+    {
+        "id": "TC-HALAL-06",
+        "feature": "Product Filtering",
+        "steps": "Test sorting by price low-to-high and high-to-low on \/category\/halal-products.",
+        "expected": "Products sort correctly according to price order.",
+        "actual": "Price ASC lowest: 550 ETB; Price DESC highest: 1200 ETB.",
+        "passed": true,
+        "issue": "None",
+        "fix": "None"
+    },
+    {
+        "id": "TC-CUST-01",
+        "feature": "Registration and Login",
+        "steps": "Verify customer credentials and password verification for customer@example.com.",
+        "expected": "Customer authenticates successfully.",
+        "actual": "Customer found (ID: 8, Name: Mr. Customer, Email: customer@example.com).",
+        "passed": true,
+        "issue": "None",
+        "fix": "None"
+    },
+    {
+        "id": "TC-CUST-02",
+        "feature": "Browse Products",
+        "steps": "Browse Halal Meat category as authenticated customer.",
+        "expected": "Product listing renders properly for authenticated user.",
+        "actual": "Authenticated customer successfully browsed category catalog.",
+        "passed": true,
+        "issue": "None",
+        "fix": "None"
+    },
+    {
+        "id": "TC-CUST-03",
+        "feature": "Add to Cart",
+        "steps": "Post product ID to \/cart\/addtocart for authenticated customer.",
+        "expected": "Cart record created in database with quantity 1.",
+        "actual": "Cart item added (ID: 16, Qty: 1, Price: 950 ETB).",
+        "passed": true,
+        "issue": "None",
+        "fix": "None"
+    },
+    {
+        "id": "TC-CUST-04",
+        "feature": "Update Cart Quantities",
+        "steps": "Post updated quantity (3) to \/cart\/updateQuantity.",
+        "expected": "Cart quantity updates to 3.",
+        "actual": "Quantity updated to 3 (Total: 2850 ETB).",
+        "passed": true,
+        "issue": "None",
+        "fix": "None"
+    },
+    {
+        "id": "TC-CUST-05",
+        "feature": "Remove Products from Cart",
+        "steps": "Post item ID to \/cart\/removeFromCart.",
+        "expected": "Cart item is deleted from database.",
+        "actual": "Cart item successfully removed (Cart count: 0).",
+        "passed": true,
+        "issue": "None",
+        "fix": "None"
+    },
+    {
+        "id": "TC-CUST-06",
+        "feature": "Checkout Flow Setup",
+        "steps": "Verify customer address and cart availability prior to payment.",
+        "expected": "Customer has active cart item and validated address in Addis Ababa.",
+        "actual": "Ready for checkout (Item: Fresh Halal Beef Prime Cuts (1kg), Address ID: 1, City: {\"id\":48357,\"name\":\"Bole\",\"state_id\":1119,\"cost\":0,\"status\":1,\"created_at\":\"2026-11-23T18:23:34.000000Z\",\"updated_at\":\"2026-11-23T18:23:34.000000Z\",\"deleted_at\":null}).",
+        "passed": true,
+        "issue": "None",
+        "fix": "None"
+    },
+    {
+        "id": "TC-PAY-01",
+        "feature": "Payment Initiation",
+        "steps": "Initialize checkout order with customer shipping address and calculate grand total.",
+        "expected": "Combined order initialized with valid total and customer details.",
+        "actual": "CombinedOrder created (ID: 9, Total: 950 ETB).",
+        "passed": true,
+        "issue": "None",
+        "fix": "None"
+    },
+    {
+        "id": "TC-PAY-02",
+        "feature": "Successful Payment (COD)",
+        "steps": "Process order checkout with Cash on Delivery and deduct catalog inventory.",
+        "expected": "Order created, order detail attached, and stock deducted.",
+        "actual": "Order #20261123-20335119 created. Stock updated from 48 to 47.",
+        "passed": true,
+        "issue": "None",
+        "fix": "None"
+    },
+    {
+        "id": "TC-PAY-03",
+        "feature": "Failed \/ Invalid Payment",
+        "steps": "Attempt payment with an unrecognized gateway parameter (\"unsupported_gateway\").",
+        "expected": "System rejects unsupported gateway and denies execution.",
+        "actual": "Validation guard correctly rejected unsupported payment provider.",
+        "passed": true,
+        "issue": "None",
+        "fix": "None"
+    },
+    {
+        "id": "TC-PAY-04",
+        "feature": "Payment Confirmation",
+        "steps": "Verify order record maintains accurate payment status for Cash on Delivery.",
+        "expected": "Payment type is \"cash_on_delivery\" and status is \"unpaid\" pending delivery.",
+        "actual": "Order status verified: Payment Type='cash_on_delivery', Payment Status='unpaid'.",
+        "passed": true,
+        "issue": "None",
+        "fix": "None"
+    },
+    {
+        "id": "TC-PAY-05",
+        "feature": "Transaction Records",
+        "steps": "Verify combined_orders relationship to individual orders in database.",
+        "expected": "Combined order links to child order records.",
+        "actual": "CombinedOrder #9 contains 1 linked orders.",
+        "passed": true,
+        "issue": "None",
+        "fix": "None"
+    },
+    {
+        "id": "TC-ORD-01",
+        "feature": "Order Creation",
+        "steps": "Inspect order data integrity and item breakdown.",
+        "expected": "Order has 1 line item with matching unit price and quantity.",
+        "actual": "Order code: 20261123-20335119, Items: 1, Total: 950 ETB.",
+        "passed": true,
+        "issue": "None",
+        "fix": "None"
+    },
+    {
+        "id": "TC-ORD-02",
+        "feature": "Order Status Updates",
+        "steps": "Update order status from \"pending\" to \"confirmed\".",
+        "expected": "Order delivery status updates to \"confirmed\".",
+        "actual": "Order delivery_status updated to 'confirmed'.",
+        "passed": true,
+        "issue": "None",
+        "fix": "None"
+    },
+    {
+        "id": "TC-ORD-03",
+        "feature": "Customer Order History",
+        "steps": "Retrieve purchase history for customer@example.com.",
+        "expected": "Customer order history includes newly placed Halal product order.",
+        "actual": "Customer has 8 orders in history including order #20261123-20335119.",
+        "passed": true,
+        "issue": "None",
+        "fix": "None"
+    },
+    {
+        "id": "TC-ORD-04",
+        "feature": "Admin Order Management",
+        "steps": "Query orders as admin and locate the newly placed Halal product order.",
+        "expected": "Admin successfully queries and locates order record.",
+        "actual": "Order #20261123-20335119 located in admin order stream.",
+        "passed": true,
+        "issue": "None",
+        "fix": "None"
+    },
+    {
+        "id": "TC-ADM-01",
+        "feature": "Product Creation",
+        "steps": "Create new Halal product with stock record under Halal Meat subcategory (ID 28).",
+        "expected": "Product and stock records created successfully in database.",
+        "actual": "Product created (ID: 39, Name: 'QA Test Halal Spiced Sausages').",
+        "passed": true,
+        "issue": "None",
+        "fix": "None"
+    },
+    {
+        "id": "TC-ADM-02",
+        "feature": "Product Editing",
+        "steps": "Modify unit price to 480.00 and stock to 25.",
+        "expected": "Product updates accurately reflect in database.",
+        "actual": "Updated: Price=480 ETB, Stock=25.",
+        "passed": true,
+        "issue": "None",
+        "fix": "None"
+    },
+    {
+        "id": "TC-ADM-03",
+        "feature": "Category Assignment",
+        "steps": "Verify product-to-category assignment in products table and product_categories pivot.",
+        "expected": "Product correctly links to Halal Meat subcategory.",
+        "actual": "Product Fresh Halal Beef Prime Cuts (1kg) assigned to Category 28 in both products and pivot.",
+        "passed": true,
+        "issue": "None",
+        "fix": "None"
+    },
+    {
+        "id": "TC-ADM-04",
+        "feature": "Product Deletion",
+        "steps": "Delete QA test product and verify cleanup of stock.",
+        "expected": "Product is removed from catalog.",
+        "actual": "Product ID 39 deleted cleanly.",
+        "passed": true,
+        "issue": "None",
+        "fix": "None"
+    },
+    {
+        "id": "TC-ADM-05",
+        "feature": "Permissions & Access Control",
+        "steps": "Verify that customer account is not granted admin user_type, while admin has full permissions.",
+        "expected": "Role authorization strictly differentiates customer and admin users.",
+        "actual": "Access control intact: customer user_type='customer', admin user_type='admin'.",
+        "passed": true,
+        "issue": "None",
+        "fix": "None"
+    },
+    {
+        "id": "TC-REG-01",
+        "feature": "Existing Categories",
+        "steps": "Verify that all 12 original root categories (Cellphones, Cameras, Fashion, etc.) remain intact.",
+        "expected": "All 12 original categories exist with unchanged parent_id and level.",
+        "actual": "12 original top-level categories fully intact.",
+        "passed": true,
+        "issue": "None",
+        "fix": "None"
+    },
+    {
+        "id": "TC-REG-02",
+        "feature": "Existing Products & Cart",
+        "steps": "Add original catalog product (\"AKvision  outdoor 5 MP ColorVu\") to cart and verify operations.",
+        "expected": "Non-Halal products continue to add to cart seamlessly without interference.",
+        "actual": "Original product 'AKvision  outdoor 5 MP ColorVu' added to cart successfully.",
+        "passed": true,
+        "issue": "None",
+        "fix": "None"
+    },
+    {
+        "id": "TC-REG-03",
+        "feature": "Geographic & Delivery Systems",
+        "steps": "Verify country and city delivery configurations for Ethiopia and Addis Ababa.",
+        "expected": "Active countries and Addis Ababa sub-cities remain fully configured.",
+        "actual": "246 active countries and 13 Addis Ababa sub-cities available for delivery.",
+        "passed": true,
+        "issue": "None",
+        "fix": "None"
+    }
+]

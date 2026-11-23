@@ -1,4 +1,18 @@
 <div class="text-left">
+    <!-- Halal Certification Badge -->
+    @if(strpos(strtolower($detailedProduct->tags), 'halal') !== false || ($detailedProduct->category && ($detailedProduct->category->parent_id == 27 || $detailedProduct->category->id == 27)))
+        <div class="mb-2 d-flex flex-wrap align-items-center">
+            <span class="badge badge-inline badge-pill badge-success px-3 py-1 fs-12 fw-600 mr-2 mb-1" style="background-color: #13814C !important; color: #fff !important;">
+                <i class="las la-check-circle mr-1"></i> 100% Halal Certified
+            </span>
+            @if($detailedProduct->category)
+                <a href="{{ route('products.category', $detailedProduct->category->slug) }}" class="badge badge-inline badge-pill badge-soft-primary px-3 py-1 fs-12 fw-600 text-primary mb-1">
+                    {{ $detailedProduct->category->getTranslation('name') }}
+                </a>
+            @endif
+        </div>
+    @endif
+
     <!-- Product Name -->
     <h2 class="mb-4 fs-16 fw-700 text-dark">
         {{ $detailedProduct->getTranslation('name') }}
