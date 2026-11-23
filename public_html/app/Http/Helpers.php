@@ -793,31 +793,49 @@ function translate($key, $lang = null, $addslashes = false)
 
     $lang_key = preg_replace('/[^A-Za-z0-9\_]/', '', str_replace(' ', '_', strtolower($key)));
 
-    $translations_en = Cache::rememberForever('translations-en', function () {
-        return Translation::where('lang', 'en')->pluck('lang_value', 'lang_key')->toArray();
-    });
-
-    if (!isset($translations_en[$lang_key])) {
-        $translation_def = new Translation;
-        $translation_def->lang = 'en';
-        $translation_def->lang_key = $lang_key;
-        $translation_def->lang_value = str_replace(array("\r", "\n", "\r\n"), "", $key);
-        $translation_def->save();
-        Cache::forget('translations-en');
+    static $cached_translations = [];
+    if (!isset($cached_translations['en'])) {
+        $cached_translations['en'] = Cache::rememberForever('translations-en', function () {
+            return Translation::where('lang', 'en')->pluck('lang_value', 'lang_key')->toArray();
+        });
     }
 
+    if (!isset($cached_translations['en'][$lang_key])) {
+        $val = str_replace(array("\r", "\n", "\r\n"), "", $key);
+        $cached_translations['en'][$lang_key] = $val;
+        try {
+            $translation_def = new Translation;
+            $translation_def->lang = 'en';
+            $translation_def->lang_key = $lang_key;
+            $translation_def->lang_value = $val;
+            $translation_def->save();
+        } catch (\Throwable $e) {}
+        Cache::forever('translations-en', $cached_translations['en']);
+    }
+
+    $translations_en = $cached_translations['en'];
+
     // return user session lang
-    $translation_locale = Cache::rememberForever("translations-{$lang}", function () use ($lang) {
-        return Translation::where('lang', $lang)->pluck('lang_value', 'lang_key')->toArray();
-    });
+    if (!isset($cached_translations[$lang])) {
+        $cached_translations[$lang] = Cache::rememberForever("translations-{$lang}", function () use ($lang) {
+            return Translation::where('lang', $lang)->pluck('lang_value', 'lang_key')->toArray();
+        });
+    }
+    $translation_locale = $cached_translations[$lang];
+
     if (isset($translation_locale[$lang_key])) {
         return $addslashes ? addslashes(trim($translation_locale[$lang_key])) : trim($translation_locale[$lang_key]);
     }
 
     // return default lang if session lang not found
-    $translations_default = Cache::rememberForever('translations-' . env('DEFAULT_LANGUAGE', 'en'), function () {
-        return Translation::where('lang', env('DEFAULT_LANGUAGE', 'en'))->pluck('lang_value', 'lang_key')->toArray();
-    });
+    $default_lang = env('DEFAULT_LANGUAGE', 'en');
+    if (!isset($cached_translations[$default_lang])) {
+        $cached_translations[$default_lang] = Cache::rememberForever("translations-{$default_lang}", function () use ($default_lang) {
+            return Translation::where('lang', $default_lang)->pluck('lang_value', 'lang_key')->toArray();
+        });
+    }
+    $translations_default = $cached_translations[$default_lang];
+
     if (isset($translations_default[$lang_key])) {
         return $addslashes ? addslashes(trim($translations_default[$lang_key])) : trim($translations_default[$lang_key]);
     }
