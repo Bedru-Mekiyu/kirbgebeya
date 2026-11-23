@@ -24,16 +24,18 @@ class NotificationUtility
             if ($order->user->email != null) {
                 Mail::to($order->user->email)->queue(new InvoiceEmailManager($array));
             }
-            Mail::to($order->orderDetails->first()->product->user->email)->queue(new InvoiceEmailManager($array));
-        } catch (\Exception $e) {
+            if ($order->orderDetails->first() && $order->orderDetails->first()->product && $order->orderDetails->first()->product->user) {
+                Mail::to($order->orderDetails->first()->product->user->email)->queue(new InvoiceEmailManager($array));
+            }
+        } catch (\Throwable $e) {
 
         }
 
-        if (addon_is_activated('otp_system') && SmsTemplate::where('identifier', 'order_placement')->first()->status == 1) {
+        if (addon_is_activated('otp_system') && SmsTemplate::where('identifier', 'order_placement')->first() && SmsTemplate::where('identifier', 'order_placement')->first()->status == 1) {
             try {
                 $otpController = new OTPVerificationController;
                 $otpController->send_order_code($order);
-            } catch (\Exception $e) {
+            } catch (\Throwable $e) {
 
             }
         }

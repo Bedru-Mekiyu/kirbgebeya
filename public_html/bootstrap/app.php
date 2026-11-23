@@ -3,6 +3,7 @@
 // Suppress deprecations from leaking into HTTP output
 error_reporting(E_ALL & ~E_DEPRECATED & ~E_USER_DEPRECATED);
 ini_set('display_errors', '0');
+$_SERVER['SERVER_NAME'] = $_SERVER['SERVER_NAME'] ?? '127.0.0.1';
 
 /*
 |--------------------------------------------------------------------------

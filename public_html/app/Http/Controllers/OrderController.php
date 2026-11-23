@@ -152,9 +152,9 @@ class OrderController extends Controller
             $shippingAddress['name']        = Auth::user()->name;
             $shippingAddress['email']       = Auth::user()->email;
             $shippingAddress['address']     = $address->address;
-            $shippingAddress['country']     = $address->country->name;
-            $shippingAddress['state']       = $address->state->name;
-            $shippingAddress['city']        = $address->city->name;
+            $shippingAddress['country']     = $address->country ? $address->country->name : ($address->country_id ?? '');
+            $shippingAddress['state']       = $address->state ? $address->state->name : ($address->state_id ?? '');
+            $shippingAddress['city']        = $address->city ? $address->city->name : ($address->city_id ?? '');
             $shippingAddress['postal_code'] = $address->postal_code;
             $shippingAddress['phone']       = $address->phone;
             if ($address->latitude || $address->longitude) {
@@ -224,6 +224,8 @@ class OrderController extends Controller
                 } elseif ($product->digital != 1) {
                     $product_stock->qty -= $cartItem['quantity'];
                     $product_stock->save();
+                    $product->current_stock = max(0, $product->current_stock - $cartItem['quantity']);
+                    $product->save();
                 }
 
                 $order_detail = new OrderDetail;

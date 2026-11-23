@@ -17,6 +17,12 @@ class AppServiceProvider extends ServiceProvider
   {
       Schema::defaultStringLength(191);
       Paginator::useBootstrap();
+
+      view()->composer('*', function ($view) {
+          if (!array_key_exists('errors', $view->getData())) {
+              $view->with('errors', session('errors', new \Illuminate\Support\ViewErrorBag));
+          }
+      });
   }
 
   /**
