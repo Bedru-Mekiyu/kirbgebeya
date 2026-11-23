@@ -31,7 +31,7 @@
                                     <a href="{{ isset(json_decode($home_slider_links, true)[$key]) ? json_decode($home_slider_links, true)[$key] : '' }}">
                                         <!-- Image -->
                                         <img class="d-block mw-100 img-fit overflow-hidden h-180px h-md-320px h-lg-460px overflow-hidden"
-                                            src="{{ $slider ? my_asset($slider->file_name) : static_asset('assets/img/placeholder.jpg') }}"
+                                            src="{{ $slider ? ($slider->external_link ?: my_asset($slider->file_name)) : static_asset('assets/img/placeholder.jpg') }}"
                                             alt="{{ env('APP_NAME') }} promo"
                                             onerror="this.onerror=null;this.src='{{ static_asset('assets/img/placeholder-rect.jpg') }}';">
                                     </a>
@@ -204,7 +204,7 @@
                             <div class="col-xl-4 col-md-6 border-left border-bottom py-3 py-md-2rem">
                                 <div class="d-sm-flex text-center text-sm-left">
                                     <div class="mb-3">
-                                        <img src="{{ isset($category->bannerImage->file_name) ? my_asset($category->bannerImage->file_name) : static_asset('assets/img/placeholder.jpg') }}"
+                                        <img src="{{ isset($category->bannerImage) ? ($category->bannerImage->external_link ?: my_asset($category->bannerImage->file_name)) : static_asset('assets/img/placeholder.jpg') }}"
                                             class="lazyload w-150px h-auto mx-auto has-transition"
                                             alt="{{ $category->getTranslation('name') }}"
                                             onerror="this.onerror=null;this.src='{{ static_asset('assets/img/placeholder.jpg') }}';">
