@@ -111,7 +111,7 @@
                 <label>{{ translate('Phone')}}</label>
             </div>
             <div class="col-md-10">
-                <input type="text" class="form-control mb-3 rounded-0" placeholder="{{ translate('+880')}}" value="{{ $address_data->phone }}" name="phone" value="" required>
+                <input type="text" class="form-control mb-3 rounded-0" placeholder="{{ translate('+251 9...')}}" value="{{ $address_data->phone }}" name="phone" value="" required>
             </div>
         </div>
 

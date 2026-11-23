@@ -32,7 +32,7 @@
                                     <select class="form-control aiz-selectpicker rounded-0" data-live-search="true" data-placeholder="{{ translate('Select your country') }}" name="country_id" required>
                                         <option value="">{{ translate('Select your country') }}</option>
                                         @foreach (get_active_countries() as $key => $country)
-                                            <option value="{{ $country->id }}">{{ $country->name }}</option>
+                                            <option value="{{ $country->id }}" @if($country->id == 69 || $country->code == 'ET') selected @endif>{{ $country->name }}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -112,7 +112,7 @@
                                 <label>{{ translate('Phone')}}</label>
                             </div>
                             <div class="col-md-10">
-                                <input type="text" class="form-control mb-3 rounded-0" placeholder="{{ translate('+880')}}" name="phone" value="" required>
+                                <input type="text" class="form-control mb-3 rounded-0" placeholder="{{ translate('+251 9...')}}" name="phone" value="" required>
                             </div>
                         </div>
                         <!-- Save button -->
@@ -148,6 +148,10 @@
     <script type="text/javascript">
         function add_new_address(){
             $('#new-address-modal').modal('show');
+            var country_id = $('[name=country_id]').val();
+            if(country_id) {
+                get_states(country_id);
+            }
         }
 
         function edit_address(address) {

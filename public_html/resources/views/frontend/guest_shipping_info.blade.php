@@ -37,7 +37,7 @@
                 <select class="form-control aiz-selectpicker rounded-0" data-live-search="true" data-placeholder="{{ translate('Select your country') }}" name="country_id" required>
                     <option value="">{{ translate('Select your country') }}</option>
                     @foreach (get_active_countries() as $key => $country)
-                        <option value="{{ $country->id }}">{{ $country->name }}</option>
+                        <option value="{{ $country->id }}" @if ($country->id == 69 || $country->code == 'ET') selected @endif>{{ $country->name }}</option>
                     @endforeach
                 </select>
             </div>
@@ -161,6 +161,13 @@
                 }
             });
         }
+
+        $(document).ready(function() {
+            var country_id = $('[name=country_id]').val();
+            if (country_id) {
+                get_states(country_id);
+            }
+        });
 
         $(document).on('change', '[name=country_id]', function() {
             var country_id = $(this).val();
