@@ -63,14 +63,16 @@ class ManageProducts extends Command
 
     protected function listProducts()
     {
-        $products = Product::with('category')->orderBy('id', 'desc')->take(30)->get();
+        $categories = Category::pluck('name', 'id')->toArray();
+        $products = Product::orderBy('id', 'desc')->take(30)->get();
 
         $rows = [];
         foreach ($products as $p) {
+            $catName = $categories[$p->category_id] ?? 'N/A';
             $rows[] = [
                 $p->id,
                 $p->name,
-                $p->category ? $p->category->name : 'N/A',
+                $catName,
                 number_format($p->unit_price, 2) . ' ETB',
                 $p->current_stock,
                 $p->published ? 'Yes' : 'No',
