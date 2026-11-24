@@ -25,93 +25,6 @@
         </div>
     @endif
 
-    <!-- Top Bar -->
-    <div class="top-navbar bg-white z-1035 h-35px h-sm-auto">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 col">
-                    <ul class="list-inline d-flex justify-content-between justify-content-lg-start mb-0">
-                        <!-- Language switcher -->
-                        @if (get_setting('show_language_switcher') == 'on')
-                            <li class="list-inline-item dropdown mr-4" id="lang-change">
-                                
-                                <a href="javascript:void(0)" class="dropdown-toggle text-secondary fs-12 py-2"
-                                    data-toggle="dropdown" data-display="static">
-                                    <span class="">{{ $system_language->name }}</span>
-                                </a>
-                                <ul class="dropdown-menu dropdown-menu-left">
-                                    @foreach (get_all_active_language() as $key => $language)
-                                        <li>
-                                            <a href="javascript:void(0)" data-flag="{{ $language->code }}"
-                                                class="dropdown-item @if ($system_language->code == $language->code) active @endif">
-                                                <img src="{{ static_asset('assets/img/placeholder.jpg') }}"
-                                                    data-src="{{ static_asset('assets/img/flags/' . $language->code . '.png') }}"
-                                                    class="mr-1 lazyload" alt="{{ $language->name }}" height="11">
-                                                <span class="language">{{ $language->name }}</span>
-                                            </a>
-                                        </li>
-                                    @endforeach
-                                </ul>
-                            </li>
-                        @endif
-
-                        <!-- Currency Switcher -->
-                        @if (get_setting('show_currency_switcher') == 'on')
-                            <li class="list-inline-item dropdown ml-auto ml-lg-0 mr-0" id="currency-change">
-                                @php
-                                    $system_currency = get_system_currency();
-                                @endphp
-
-                                <a href="javascript:void(0)" class="dropdown-toggle text-secondary fs-12 py-2"
-                                    data-toggle="dropdown" data-display="static">
-                                    {{ $system_currency->name }}
-                                </a>
-                                <ul class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left">
-                                    @foreach (get_all_active_currency() as $key => $currency)
-                                        <li>
-                                            <a class="dropdown-item @if ($system_currency->code == $currency->code) active @endif"
-                                                href="javascript:void(0)"
-                                                data-currency="{{ $currency->code }}">{{ $currency->name }}
-                                                ({{ $currency->symbol }})</a>
-                                        </li>
-                                    @endforeach
-                                </ul>
-                            </li>
-                        @endif
-
-                    </ul>
-                </div>
-
-                <div class="col-6 text-right d-none d-lg-block">
-                    <ul class="list-inline mb-0 h-100 d-flex justify-content-end align-items-center">
-                        @if (get_setting('vendor_system_activation') == 1)
-                            <!-- Become a Seller -->
-                            <li class="list-inline-item mr-0 pl-0 py-2">
-                                <a href="{{ route('shops.create') }}"
-                                    class="text-secondary fs-12 pr-3 d-inline-block border-width-2 border-right">{{ translate('Become a Seller !') }}</a>
-                            </li>
-                            <!-- Seller Login -->
-                            <li class="list-inline-item mr-0 pl-0 py-2">
-                                <a href="{{ route('seller.login') }}"
-                                    class="text-secondary fs-12 pl-3 d-inline-block">{{ translate('Login to Seller') }}</a>
-                            </li>
-                        @endif
-                        @if (get_setting('helpline_number'))
-                            <!-- Helpline -->
-                            <li class="list-inline-item ml-3 pl-3 mr-0 pr-0">
-                                <a href="tel:{{ get_setting('helpline_number') }}"
-                                    class="text-secondary fs-12 d-inline-block py-2">
-                                    <span>{{ translate('Helpline') }}</span>
-                                    <span>{{ get_setting('helpline_number') }}</span>
-                                </a>
-                            </li>
-                        @endif
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <header class="@if (get_setting('header_stikcy') == 'on') sticky-top @endif z-1020 bg-white">
         <!-- Search Bar -->
         <div class="position-relative logo-bar-area border-bottom border-md-nonea z-1025">
@@ -570,7 +483,7 @@
                                         @endphp
                                         <li class="list-inline-item mr-0 animate-underline-white">
                                             <a href="{{ $menu_url }}"
-                                                class="fs-13 px-3 py-3 d-inline-block fw-700 {{ $nav_txt_color }} header_menu_links hov-bg-black-10
+                                                class="fs-13 px-3 py-3 d-inline-block text-nowrap fw-700 {{ $nav_txt_color }} header_menu_links hov-bg-black-10
                                             @if (url()->current() == $menu_url) active @endif">
                                                 {{ translate($value) }}
                                             </a>
@@ -580,8 +493,61 @@
                             </ul>
                         </div>
                     </div>
+                    <!-- Right side: Language, Currency, Seller Login -->
+                    <ul class="list-inline mb-0 d-flex align-items-center flex-shrink-0 ml-auto pl-2">
+                        @if (get_setting('show_language_switcher') == 'on')
+                            <li class="list-inline-item dropdown mr-0" id="lang-change">
+                                <a href="javascript:void(0)" class="dropdown-toggle fs-12 fw-700 px-2 py-3 d-inline-block text-nowrap {{ $nav_txt_color }} hov-bg-black-10"
+                                    data-toggle="dropdown" data-display="static">
+                                    {{ $system_language->name }}
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-right">
+                                    @foreach (get_all_active_language() as $key => $language)
+                                        <li>
+                                            <a href="javascript:void(0)" data-flag="{{ $language->code }}"
+                                                class="dropdown-item @if ($system_language->code == $language->code) active @endif">
+                                                <img src="{{ static_asset('assets/img/placeholder.jpg') }}"
+                                                    data-src="{{ static_asset('assets/img/flags/' . $language->code . '.png') }}"
+                                                    class="mr-1 lazyload" alt="{{ $language->name }}" height="11">
+                                                <span class="language">{{ $language->name }}</span>
+                                            </a>
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            </li>
+                        @endif
+
+                        @if (get_setting('show_currency_switcher') == 'on')
+                            @php
+                                $system_currency = get_system_currency();
+                            @endphp
+                            <li class="list-inline-item dropdown mr-0" id="currency-change">
+                                <a href="javascript:void(0)" class="dropdown-toggle fs-12 fw-700 px-2 py-3 d-inline-block text-nowrap {{ $nav_txt_color }} hov-bg-black-10"
+                                    data-toggle="dropdown" data-display="static">
+                                    {{ $system_currency->name }}
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-right">
+                                    @foreach (get_all_active_currency() as $key => $currency)
+                                        <li>
+                                            <a class="dropdown-item @if ($system_currency->code == $currency->code) active @endif"
+                                                href="javascript:void(0)"
+                                                data-currency="{{ $currency->code }}">{{ $currency->name }}
+                                                ({{ $currency->symbol }})</a>
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            </li>
+                        @endif
+
+                        @if (get_setting('vendor_system_activation') == 1)
+                            <li class="list-inline-item mr-0">
+                                <a href="{{ route('seller.login') }}"
+                                    class="fs-12 fw-700 px-2 py-3 d-inline-block text-nowrap {{ $nav_txt_color }} hov-bg-black-10">{{ translate('Seller Login') }}</a>
+                            </li>
+                        @endif
+                    </ul>
                     <!-- Cart -->
-                    <div class="d-none d-xl-block align-self-stretch ml-5 mr-0 has-transition bg-black-10"
+                    <div class="d-none d-xl-block align-self-stretch ml-3 mr-0 has-transition bg-black-10"
                         data-hover="dropdown">
                         <div class="nav-cart-box dropdown h-100" id="cart_items" style="width: max-content;">
                             @include('frontend.'.get_setting('homepage_select').'.partials.cart')
