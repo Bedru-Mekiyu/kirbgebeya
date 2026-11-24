@@ -460,6 +460,14 @@
         <div class="d-none d-lg-block position-relative bg-primary h-50px">
             <div class="container h-100">
                 <div class="d-flex h-100">
+                    <!-- All Categories button (opens #click-category-menu) -->
+                    <button type="button" id="category-menu-bar"
+                        class="btn d-flex align-items-center flex-shrink-0 h-100 px-3 rounded-0 border-0 bg-black-10 text-white fs-14 fw-700 hov-opacity-80"
+                        aria-label="{{ translate('All Categories') }}" aria-controls="click-category-menu">
+                        <i class="las la-bars fs-20 mr-2"></i>
+                        <span>{{ translate('All') }}</span>
+                        <i class="las la-angle-down fs-14 ml-2 has-transition" id="category-menu-bar-icon"></i>
+                    </button>
                     <!-- Header Menus -->
                     @php
                         $nav_txt_color = ((get_setting('header_nav_menu_text') == 'light') ||  (get_setting('header_nav_menu_text') == null)) ? 'text-white' : 'text-dark';

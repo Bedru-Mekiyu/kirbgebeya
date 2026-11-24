@@ -13,12 +13,8 @@
     <div class="home-banner-area mb-3" style="">
         <div class="container">
             <div class="d-flex flex-wrap position-relative">
-                <div class="position-static d-none d-xl-block">
-                    @include('frontend.'.get_setting("homepage_select").'.partials.category_menu')
-                </div>
-
-                <!-- Sliders -->
-                <div class="home-slider">
+                <!-- Sliders (category list moved to the "All" button in the menu bar) -->
+                <div class="home-slider slider-full">
                     @if (get_setting('home_slider_images', null, $lang) != null)
                         <div class="aiz-carousel dots-inside-bottom" data-autoplay="true" data-infinite="true" data-autoplay-speed="2000">
                             @php

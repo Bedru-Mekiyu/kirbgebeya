@@ -1,6 +1,6 @@
 <div class="aiz-category-menu bg-white rounded-0 border-top" id="category-sidebar" style="width:270px;">
     <ul class="list-unstyled categories no-scrollbar mb-0 text-left">
-        @foreach (get_level_zero_categories()->take(10) as $key => $category)
+        @foreach (get_level_zero_categories() as $key => $category)
             @php
                 $category_name = $category->getTranslation('name');
             @endphp
