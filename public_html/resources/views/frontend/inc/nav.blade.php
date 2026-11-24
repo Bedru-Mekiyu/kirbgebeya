@@ -494,7 +494,7 @@
                         </div>
                     </div>
                     <!-- Right side: Language, Currency, Seller Login -->
-                    <ul class="list-inline mb-0 d-flex align-items-center flex-shrink-0 ml-auto pl-2">
+                    <ul class="list-inline mb-0 d-flex align-items-center flex-shrink-0 ml-auto pl-2 mr-n1">
                         @if (get_setting('show_language_switcher') == 'on')
                             <li class="list-inline-item dropdown mr-0" id="lang-change">
                                 <a href="javascript:void(0)" class="dropdown-toggle fs-12 fw-700 px-2 py-3 d-inline-block text-nowrap {{ $nav_txt_color }} hov-bg-black-10"
@@ -547,7 +547,7 @@
                         @endif
                     </ul>
                     <!-- Cart -->
-                    <div class="d-none d-xl-block align-self-stretch ml-3 mr-0 has-transition bg-black-10"
+                    <div class="d-none d-xl-block align-self-stretch ml-2 mr-n2 has-transition hov-bg-black-10"
                         data-hover="dropdown">
                         <div class="nav-cart-box dropdown h-100" id="cart_items" style="width: max-content;">
                             @include('frontend.'.get_setting('homepage_select').'.partials.cart')

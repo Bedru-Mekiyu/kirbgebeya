@@ -463,18 +463,38 @@
         @endif
 
         $(document).ready(function() {
-            $('.category-nav-element').each(function(i, el) {
+            function loadSubCategories(el){
+                var $menu = $(el).find('.sub-cat-menu');
+                if(!$menu.hasClass('loaded') && !$menu.hasClass('loading')){
+                    $menu.addClass('loading');
+                    $.post('{{ route('category.elements') }}', {
+                        _token: AIZ.data.csrf,
+                        id: $(el).data('id')
+                    }, function(data){
+                        $menu.removeClass('loading').addClass('loaded').html(data);
+                    }).fail(function(){
+                        $menu.removeClass('loading');
+                    });
+                }
+            }
 
+            // Mark one category as active so its subcategory panel stays visible
+            function activateCategory(el){
+                $(el).addClass('active').siblings('.category-nav-element').removeClass('active');
+                loadSubCategories(el);
+            }
+
+            $('.category-nav-element').each(function(i, el) {
                 $(el).on('mouseover', function(){
-                    if(!$(el).find('.sub-cat-menu').hasClass('loaded')){
-                        $.post('{{ route('category.elements') }}', {
-                            _token: AIZ.data.csrf, 
-                            id:$(el).data('id'
-                            )}, function(data){
-                            $(el).find('.sub-cat-menu').addClass('loaded').html(data);
-                        });
-                    }
+                    activateCategory(el);
                 });
+            });
+
+            // "All" button: when the menu opens, show the active (or first) category's subcategories
+            $('#category-menu-bar').on('click', function(){
+                var $items = $('#click-category-menu .category-nav-element');
+                var $active = $items.filter('.active');
+                activateCategory($active.length ? $active[0] : $items[0]);
             });
 
             if ($('#lang-change').length > 0) {

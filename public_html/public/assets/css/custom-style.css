@@ -49,3 +49,24 @@
     padding: 0 12px 0 28px;
     background-position: left 10px center;
 }
+
+/* "All" categories menu: keep the active category's subcategories visible */
+.aiz-category-menu .category-nav-element.active .sub-cat-menu {
+    z-index: 9;
+    opacity: 1;
+}
+.aiz-category-menu .category-nav-element.active > a {
+    position: relative;
+    z-index: 10;
+    background: var(--soft-secondary-base);
+}
+.aiz-category-menu .category-nav-element.active > a .cat-name {
+    margin-left: 5px;
+}
+
+/* Category/search listing cards: draw the animated green outline above the white card */
+.listing-card-outline::before,
+.listing-card-outline::after {
+    z-index: 3 !important;
+    pointer-events: none;
+}

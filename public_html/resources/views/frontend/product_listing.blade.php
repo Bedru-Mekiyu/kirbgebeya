@@ -232,27 +232,6 @@
                     <!-- Contents -->
                     <div class="col-xl-9">
                         
-                        <!-- Breadcrumb -->
-                        <ul class="breadcrumb bg-transparent py-0 px-1">
-                            <li class="breadcrumb-item has-transition opacity-50 hov-opacity-100">
-                                <a class="text-reset" href="{{ route('home') }}">{{ translate('Home')}}</a>
-                            </li>
-                            @if(!isset($category_id))
-                                <li class="breadcrumb-item fw-700  text-dark">
-                                    "{{ translate('All Categories')}}"
-                                </li>
-                            @else
-                                <li class="breadcrumb-item opacity-50 hov-opacity-100">
-                                    <a class="text-reset" href="{{ route('search') }}">{{ translate('All Categories')}}</a>
-                                </li>
-                            @endif
-                            @if(isset($category_id))
-                                <li class="text-dark fw-600 breadcrumb-item">
-                                    "{{ $category->getTranslation('name') }}"
-                                </li>
-                            @endif
-                        </ul>
-                        
                         <!-- Top Filters -->
                         <div class="text-left">
                             <div class="row gutters-5 flex-wrap align-items-center">
@@ -311,7 +290,7 @@
                         <div class="px-3">
                             <div class="row gutters-16 row-cols-xxl-4 row-cols-xl-3 row-cols-lg-4 row-cols-md-3 row-cols-2 border-top border-left">
                                 @foreach ($products as $key => $product)
-                                    <div class="col border-right border-bottom has-transition hov-shadow-out z-1">
+                                    <div class="col border-right border-bottom has-transition hov-animate-outline listing-card-outline">
                                         @include('frontend.'.get_setting('homepage_select').'.partials.product_box_1',['product' => $product])
                                     </div>
                                 @endforeach
