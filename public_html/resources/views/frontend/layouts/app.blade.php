@@ -506,38 +506,70 @@
             }
         });
 
-        $('#search').on('keyup', function(){
-            search();
+        // Header search "All" category dropdown: search inside the chosen category
+        (function(){
+            var $form = $('#header-search-form');
+            var $cat = $('#header-search-category');
+            if (!$form.length || !$cat.length) return;
+
+            function fitCategoryWidth(){
+                var $m = $('<span>').text($cat.find('option:selected').text().trim())
+                    .css({position:'absolute', visibility:'hidden', whiteSpace:'nowrap', fontSize:$cat.css('font-size'), fontFamily:$cat.css('font-family')})
+                    .appendTo('body');
+                $cat.css('width', Math.ceil($m.width()) + 44 + 'px');
+                $m.remove();
+            }
+            fitCategoryWidth();
+
+            $cat.on('change', function(){
+                fitCategoryWidth();
+                $('#search').trigger('focus');
+            });
+
+            $form.on('submit', function(){
+                this.action = $cat.is(':visible') && $cat.val() ? $cat.val() : $form.data('search-url');
+            });
+        })();
+
+        $('.live-search-input').on('keyup focus', function(){
+            search($(this));
         });
 
-        $('#search').on('focus', function(){
-            search();
+        // Arrow button: fetch and show the result list for the typed keyword
+        $('.live-search-btn').on('click', function(e){
+            e.preventDefault();
+            var $input = $(this).closest('.live-search-scope').find('.live-search-input');
+            $input.trigger('focus');
+            search($input);
         });
 
-        function search(){
-            var searchKey = $('#search').val();
+        function search($input){
+            var $scope = $input.closest('.live-search-scope');
+            var $box = $scope.find('.typed-search-box');
+            var $nothing = $box.find('.search-nothing');
+            var $content = $box.find('.search-content');
+            var $loader = $box.find('.search-preloader');
+            var searchKey = $input.val();
             if(searchKey.length > 0){
                 $('body').addClass("typed-search-box-shown");
 
-                $('.typed-search-box').removeClass('d-none');
-                $('.search-preloader').removeClass('d-none');
+                $box.removeClass('d-none');
+                $loader.removeClass('d-none');
                 $.post('{{ route('search.ajax') }}', { _token: AIZ.data.csrf, search:searchKey}, function(data){
                     if(data == '0'){
-                        // $('.typed-search-box').addClass('d-none');
-                        $('#search-content').html(null);
-                        $('.typed-search-box .search-nothing').removeClass('d-none').html('{{ translate('Sorry, nothing found for') }} <strong>"'+searchKey+'"</strong>');
-                        $('.search-preloader').addClass('d-none');
-
+                        $content.html(null);
+                        $nothing.removeClass('d-none').html('{{ translate('Sorry, nothing found for') }} <strong>"'+$('<div>').text(searchKey).html()+'"</strong>');
+                        $loader.addClass('d-none');
                     }
                     else{
-                        $('.typed-search-box .search-nothing').addClass('d-none').html(null);
-                        $('#search-content').html(data);
-                        $('.search-preloader').addClass('d-none');
+                        $nothing.addClass('d-none').html(null);
+                        $content.html(data);
+                        $loader.addClass('d-none');
                     }
                 });
             }
             else {
-                $('.typed-search-box').addClass('d-none');
+                $box.addClass('d-none');
                 $('body').removeClass("typed-search-box-shown");
             }
         }

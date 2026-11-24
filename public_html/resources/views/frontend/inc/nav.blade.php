@@ -68,32 +68,41 @@
                     </div>
                     <!-- Search field -->
                     <div class="flex-grow-1 front-header-search d-flex align-items-center bg-white mx-xl-5">
-                        <div class="position-relative flex-grow-1 px-3 px-lg-0">
-                            <form action="{{ route('search') }}" method="GET" class="stop-propagation">
+                        <div class="position-relative flex-grow-1 px-3 px-lg-0 live-search-scope">
+                            <form action="{{ route('search') }}" method="GET" class="stop-propagation"
+                                id="header-search-form" data-search-url="{{ route('search') }}">
                                 <div class="d-flex position-relative align-items-center">
                                     <div class="d-lg-none" data-toggle="class-toggle"
                                         data-target=".front-header-search">
                                         <button class="btn px-2" type="button"><i
                                                 class="la la-2x la-long-arrow-left"></i></button>
                                     </div>
-                                    <div class="search-input-box">
+                                    <!-- Amazon-style search: [All v | keyword | ->] -->
+                                    <div class="header-search-group d-flex align-items-stretch w-100">
+                                        @php
+                                            $selected_search_category = isset($category_id) ? $category_id : null;
+                                        @endphp
+                                        <select class="header-search-category d-none d-md-block" id="header-search-category"
+                                            aria-label="{{ translate('Search in category') }}">
+                                            <option value="">{{ translate('All') }}</option>
+                                            @foreach (get_level_zero_categories() as $search_category)
+                                                <option value="{{ route('products.category', $search_category->slug) }}"
+                                                    @if ($selected_search_category == $search_category->id) selected @endif>
+                                                    {{ $search_category->getTranslation('name') }}
+                                                </option>
+                                            @endforeach
+                                        </select>
                                         <input type="text"
-                                            class="border border-soft-light form-control fs-14 hov-animate-outline"
+                                            class="form-control fs-14 header-search-input live-search-input"
                                             id="search" name="keyword"
                                             @isset($query)
                                             value="{{ $query }}"
                                         @endisset
                                             placeholder="{{ translate('I am shopping for...') }}" autocomplete="off">
-
-                                        <svg id="Group_723" data-name="Group 723" xmlns="http://www.w3.org/2000/svg"
-                                            width="20.001" height="20" viewBox="0 0 20.001 20">
-                                            <path id="Path_3090" data-name="Path 3090"
-                                                d="M9.847,17.839a7.993,7.993,0,1,1,7.993-7.993A8,8,0,0,1,9.847,17.839Zm0-14.387a6.394,6.394,0,1,0,6.394,6.394A6.4,6.4,0,0,0,9.847,3.453Z"
-                                                transform="translate(-1.854 -1.854)" fill="#b5b5bf" />
-                                            <path id="Path_3091" data-name="Path 3091"
-                                                d="M24.4,25.2a.8.8,0,0,1-.565-.234l-6.15-6.15a.8.8,0,0,1,1.13-1.13l6.15,6.15A.8.8,0,0,1,24.4,25.2Z"
-                                                transform="translate(-5.2 -5.2)" fill="#b5b5bf" />
-                                        </svg>
+                                        <button type="submit" class="btn btn-primary header-search-btn"
+                                            title="{{ translate('Search') }}" aria-label="{{ translate('Search') }}">
+                                            <i class="las la-arrow-right fs-20"></i>
+                                        </button>
                                     </div>
                                 </div>
                             </form>
@@ -109,7 +118,7 @@
                                 <div class="search-nothing d-none p-3 text-center fs-16">
 
                                 </div>
-                                <div id="search-content" class="text-left">
+                                <div id="search-content" class="text-left search-content">
 
                                 </div>
                             </div>
@@ -451,28 +460,11 @@
         <div class="d-none d-lg-block position-relative bg-primary h-50px">
             <div class="container h-100">
                 <div class="d-flex h-100">
-                    <!-- Categoty Menu Button -->
-                    <div class="d-none d-xl-block all-category has-transition bg-black-10" id="category-menu-bar">
-                        <div class="px-3 h-100"
-                            style="padding-top: 12px;padding-bottom: 12px; width:270px; cursor: pointer;">
-                            <div class="d-flex align-items-center justify-content-between">
-                                <div>
-                                    <span class="fw-700 fs-16 text-white mr-3">{{ translate('Categories') }}</span>
-                                    <a href="{{ route('categories.all') }}" class="text-reset">
-                                        <span
-                                            class="d-none d-lg-inline-block text-white hov-opacity-80">({{ translate('See All') }})</span>
-                                    </a>
-                                </div>
-                                <i class="las la-angle-down text-white has-transition" id="category-menu-bar-icon"
-                                    style="font-size: 1.2rem !important"></i>
-                            </div>
-                        </div>
-                    </div>
                     <!-- Header Menus -->
                     @php
                         $nav_txt_color = ((get_setting('header_nav_menu_text') == 'light') ||  (get_setting('header_nav_menu_text') == null)) ? 'text-white' : 'text-dark';
                     @endphp
-                    <div class="ml-xl-4 w-100 overflow-hidden">
+                    <div class="w-100 overflow-hidden">
                         <div class="d-flex align-items-center justify-content-center justify-content-xl-start h-100">
                             <ul class="list-inline mb-0 pl-0 hor-swipe c-scrollbar-light">
                                 @if (get_setting('header_menu_labels') != null)

@@ -1,1 +1,51 @@
 /*your custom css goes here*/ 
+/* Header search: Amazon-style [All v | keyword | ->] */
+.header-search-group {
+    height: 42px;
+    border: 2px solid var(--primary);
+    border-radius: 6px;
+    overflow: hidden;
+    background: #fff;
+}
+.header-search-category {
+    flex: 0 0 auto;
+    max-width: 170px;
+    height: 100%;
+    padding: 0 28px 0 12px;
+    border: 0;
+    border-right: 1px solid #dfdfe6;
+    background: #f3f3f5 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23555'/%3E%3C/svg%3E") no-repeat right 10px center;
+    color: #333;
+    font-size: 13px;
+    cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    text-overflow: ellipsis;
+}
+.header-search-category:hover { background-color: #e7e7ea; }
+.header-search-category:focus { outline: 2px solid var(--primary); outline-offset: -2px; }
+.header-search-group .header-search-input {
+    flex: 1 1 auto;
+    height: 100%;
+    border: 0 !important;
+    border-radius: 0;
+    box-shadow: none !important;
+}
+.header-search-btn {
+    flex: 0 0 auto;
+    width: 52px;
+    height: 100%;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+[dir="rtl"] .header-search-category {
+    border-right: 0;
+    border-left: 1px solid #dfdfe6;
+    padding: 0 12px 0 28px;
+    background-position: left 10px center;
+}
